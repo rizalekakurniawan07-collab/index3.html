@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Rizal Eka Kurniawan</title>
+    <!-- Font Google Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* RESET & VARIABEL */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: #0b0f19;
+            color: #f1f5f9;
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: 
+                radial-gradient(circle at 10% 10%, rgba(0, 242, 254, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, rgba(127, 0, 255, 0.12) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        /* CONTAINER CV UTAMA */
+        .cv-card {
+            width: 100%;
+            max-width: 850px;
+            background: rgba(18, 24, 38, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+        }
+
+        /* HEADER (NAMA & JOB TITLE) */
+        header {
+            text-align: center;
+            padding: 45px 25px 35px;
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.1) 0%, rgba(127, 0, 255, 0.1) 100%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .badge-status {
+            display: inline-block;
+            padding: 6px 14px;
+            background: rgba(0, 242, 254, 0.1);
+            border: 1px solid #00f2fe;
+            color: #00f2fe;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        header h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #00f2fe, #4facfe, #9d4edd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+            text-transform: capitalize;
+        }
+
+        header h2 {
+            font-size: 1rem;
+            color: #94a3b8;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* CONTENT LAYOUT */
+        main {
+            padding: 35px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        /* JUDUL SEKSI */
+        section h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #fff;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        section h3::before {
+            content: '';
+            width: 6px;
+            height: 20px;
+            background: linear-gradient(to bottom, #00f2fe, #7f00ff);
+            border-radius: 10px;
+            box-shadow: 0 0 10px #00f2fe;
+        }
+
+        /* SEKSI PROFIL */
+        .profil-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .profil-wrapper img {
+            width: 110px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 2px solid #00f2fe;
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.25);
+            flex-shrink: 0;
+        }
+
+        .profil-wrapper p {
+            color: #94a3b8;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* SEKSI LIST (PENDIDIKAN & PENGALAMAN) */
+        .card-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .card-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .card-item:hover {
+            border-color: rgba(0, 242, 254, 0.3);
+            background: rgba(255, 255, 255, 0.04);
+            transform: translateY(-2px);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .card-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #f1f5f9;
+        }
+
+        .card-sub {
+            color: #00f2fe;
+            font-size: 0.88rem;
+            margin-top: 2px;
+        }
+
+        .date-badge {
+            background: rgba(0, 242, 254, 0.1);
+            color: #00f2fe;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 242, 254, 0.2);
+        }
+
+        .bullets {
+            list-style: none;
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .bullets li {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            position: relative;
+            padding-left: 18px;
+        }
+
+        .bullets li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #00f2fe;
+        }
+
+        /* SKILLS GRID */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+        }
+
+        .skill-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 14px 16px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(127, 0, 255, 0.15));
+            border-color: #00f2fe;
+            transform: translateY(-2px);
+        }
+
+        /* KONTAK GRID */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 16px;
+            border-radius: 12px;
+        }
+
+        .contact-item span {
+            display: block;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #94a3b8;
+            margin-bottom: 4px;
+        }
+
+        .contact-item a, .contact-item p {
+            color: #00f2fe;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            word-break: break-all;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #94a3b8;
+            font-size: 0.8rem;
+        }
+
+        /* RESPONSIVE UNTUK HP */
+        @media (max-width: 600px) {
+            main {
+                padding: 20px;
+            }
+
+            .profil-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cv-card">
+        <!-- Header Utama -->
+        <header>
+            <span class="badge-status">Siap Kerja</span>
+            <h1>Rizal Eka Kurniawan</h1>
+            <h2>Teknisi Otomotif / Mekanik</h2>
+        </header>
+
+        <main>
+            <!-- Seksi Profil -->
+            <section id="profil">
+                <h3>Profil Saya</h3>
+                <div class="profil-wrapper">
+                    <img src="bejuks pas foto .jpeg" alt="Rizal Eka Kurniawan">
+                    <p>Halo, saya adalah seorang lulusan SMK BK Solo jurusan Teknik Kendaraan Ringan / Otomotif yang memiliki passion tinggi di dunia otomotif. Saya memiliki keterampilan dalam perawatan berkala, perbaikan mesin, dan sistem kelistrikan kendaraan serta selalu siap mempelajari teknologi otomotif terbaru.</p>
+                </div>
+            </section>
+
+            <!-- Seksi Pendidikan -->
+            <section id="pendidikan">
+                <h3>Riwayat Pendidikan</h3>
+                <div class="card-list">
+                    <div class="card-item">
+                        <div class="card-header">
+                            <div>
+                                <div class="card-title">SMK BK Solo</div>
+                                <div class="card-sub">Teknik Kendaraan Ringan / Otomotif</div>
+                            </div>
+                            <span class="date-badge">2021 - 2024</span>
+                        </div>
+                    </div>
+                    <div class="card-item">
+                        <div class="card-header">
+                            <div>
+                                <div class="card-title">SMP Negeri Contoh Solo</div>
+                            </div>
+                            <span class="date-badge">2018 - 2021</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seksi Pengalaman Kerja -->
+            <section id="pengalaman">
+                <h3>Pengalaman Kerja</h3>
+                <div class="card-list">
+                    <div class="card-item">
+                        <div class="card-header">
+                            <div>
+                                <div class="card-title">Teknisi Otomotif (Internship / PKL)</div>
+                                <div class="card-sub">Bengkel Resmi Contoh Solo</div>
+                            </div>
+                            <span class="date-badge">Januari 2023 - April 2023</span>
+                        </div>
+                        <ul class="bullets">
+                            <li>Melakukan perawatan berkala dan servis rutin kendaraan roda empat.</li>
+                            <li>Membantu perbaikan sistem rem, transmisi, dan Tune-Up mesin.</li>
+                            <li>Menggunakan alat pemindai (Scanner Diagnostic) untuk mengecek kode kerusakan sistem EFI.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seksi Keterampilan -->
+            <section id="keterampilan">
+                <h3>Keterampilan (Skills)</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">⚙️ Tune-Up & Perawatan Mesin</div>
+                    <div class="skill-item">⚡ Sistem Kelistrikan Otomotif</div>
+                    <div class="skill-item">🛠️ Perbaikan Rem & Suspensi</div>
+                    <div class="skill-item">💻 Diagnosa Scanner Tool (EFI)</div>
+                    <div class="skill-item">🤝 Kerja Tim & Komunikasi Bengkel</div>
+                </div>
+            </section>
+
+            <!-- Seksi Kontak -->
+            <section id="kontak">
+                <h3>Hubungi Saya</h3>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <span>Email</span>
+                        <a href="mailto:rizal.ekakurniawan07@gmail.com">rizalekakurniawan07@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>WhatsApp / No. HP</span>
+                        <a href="https://wa.me/6289525628555" target="_blank">0895-2562-8555</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>Alamat Domisili</span>
+                        <p>Surakarta (Solo), Jawa Tengah</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 Rizal Eka Kurniawan • Semua Hak Dilindungi.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
